@@ -1,0 +1,8 @@
+CLAUDE.local.md
+
+# downloaded/generated data — recreated automatically on first run
+results.csv
+elo_history.parquet
+tm_squad_values.parquet
+*.vscode
+
