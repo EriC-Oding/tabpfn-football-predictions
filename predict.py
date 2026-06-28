@@ -567,7 +567,6 @@ def main():
     cols  = {c: proba[:, i] for i, c in enumerate(clf.classes_)}
 
     out = future[["date", "home_team", "away_team"]].copy()
-    out["predicted"]   = clf.classes_[proba.argmax(1)]
     out["p_home_win"]  = cols["home_win"]
     out["p_draw"]      = cols["draw"]
     out["p_away_win"]  = cols["away_win"]
@@ -579,7 +578,7 @@ def main():
     print(f"\n{len(out)} fixture predictions -> {filename}\n")
     for r in out.itertuples():
         print(f"  {r.date.date()}  {r.home_team:>20} vs {r.away_team:<20}  "
-              f"-> {r.predicted:<9}  H {r.p_home_win:4.0%} | D {r.p_draw:4.0%} | A {r.p_away_win:4.0%}")
+              f"H {r.p_home_win:4.0%} | D {r.p_draw:4.0%} | A {r.p_away_win:4.0%}")
 
 
 if __name__ == "__main__":
